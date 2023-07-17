@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 5</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+  
+<div class="container">
+  <h1> JS Problems</h1>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Question 1.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Question 2.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Question 3.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-Question-4-tab" data-bs-toggle="pill" data-bs-target="#Question-4" type="button" role="tab" aria-controls="Question-4" aria-selected="false">Question 4.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-Question-5-tab" data-bs-toggle="pill" data-bs-target="#Question-5" type="button" role="tab" aria-controls="Question-5" aria-selected="false">Question 5.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-Question-6-tab" data-bs-toggle="pill" data-bs-target="#Question-6" type="button" role="tab" aria-controls="Question-6" aria-selected="false">Question 6.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-Question-7-tab" data-bs-toggle="pill" data-bs-target="#Question-7" type="button" role="tab" aria-controls="Question-7" aria-selected="false">Question 7.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-Question-8-tab" data-bs-toggle="pill" data-bs-target="#Question-8" type="button" role="tab" aria-controls="Question-8" aria-selected="false">Question 8.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-Question-9-tab" data-bs-toggle="pill" data-bs-target="#Question-9" type="button" role="tab" aria-controls="Question-9" aria-selected="false">Question 9.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-Question-10-tab" data-bs-toggle="pill" data-bs-target="#Question-10" type="button" role="tab" aria-controls="Question-10" aria-selected="false">Question 10.</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="Question">
+              <h5>
+
+              1-  Write a JavaScript program to display the current day and time in the following format.  
+                Sample Output : Today is : Tuesday.
+                Current time is : 10 PM : 30 : 38
+              </h5>
+            </div>
+            <div class="Result">
+                <div class="Code " style="white-space: pre">
+                    <h6>Problem Solution Code</h6>
+function DateFormat(days,hrs, mins, secs,daysArray) {
+let Time = ''
+if (hrs > 12) {
+ Time = `Current Time ${hrs-12} PM : ${mins} : ${secs}`
+   }
+  else if(hrs === 12 ){
+ Time =  `${hrs} PM : ${mins} : ${secs}`
+     } 
+   else if(hrs === 0){
+   hrs = 12
+    Time =  `${hrs} AM : ${mins} : ${secs}`
+    }
+ else{
+   Time =  `${hrs} AM : ${mins} : ${secs}`
+   }
+ console.log(Time);
+                      
+ let day = 'Today is '+  daysArray[days]
+ console.log( day);
+ document.getElementById('Result1').innerHTML = day + Time
+  }
+                </div>
+                <div class="outPut">
+                    <h6>Solution Output</h6>
+                    <button type="button" onclick="DateFormat(days,hrs,mins,secs,daysArray)" class="btn btn-outline-success">View Result</button>
+                    <p id="Result1"></p>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <div class="Question">
+            <h5>
+
+              2- Write a JavaScript program to find out if 1st January will be a Sunday between 2014 and 2050
+            </h5>
+          </div>
+          <div class="Result">
+              <div class="Code"  style="white-space: pre">
+                  <h6>Problem Solution Code</h6>  
+ function Jan1st(yearStart , yearEnd) {
+let Jan1stYear = []
+ for (let i = yearStart; i <= yearEnd    ; i++) {
+const date = new Date( i , 0 , 1 )
+const days = date.getDay();
+if (days === 0) {
+ Jan1stYear.push(i)
+   }
+ }
+ console.log(`The Year which has 1st Jan is on Sunday are ${Jan1stYear.join(",")}`);
+ document.getElementById('Result2').innerHTML = `The Year which has 1st Jan is on Sunday are ${Jan1stYear.join(",")}`
+                }
+              </div>
+              <div class="outPut">
+                  <h6>Solution Output</h6>
+                  <button type="button" onclick="Jan1st(2014,2050)" class="btn btn-outline-success">View Result</button>
+                  <p id="Result2"></p>
+              </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <div class="Question">
+            <h5>
+
+              3- Write a JavaScript program to calculate the days left before Christmas. 
+            </h5>
+          </div>
+          <div class="Result">
+              <div class="Code"  style="white-space: pre">
+                  <h6>Problem Solution Code</h6>
+ function DaysLeft(date1, date2) {
+                    
+let Time1 = date1.getTime()
+ let Time2 = date2.getTime()
+                    
+let Time_Differ = Time2 - Time1
+let Days = Math.round((Time_Differ /(1000*60*60*24) ))
+  console.log(`Day Until Christmas: ${Days}`);
+document.getElementById('Result2').innerHTML = `Day Until Christmas: ${Days}`
+ }
+              </div>
+              <div class="outPut">
+                  <h6>Solution Output</h6>
+                  <button type="button" onclick="DaysLeft(CurrentDate,ChristmasDate)" class="btn btn-outline-success">View Result</button>
+                  <p id="Result4"></p>
+              </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="Question-4" role="tabpanel" aria-labelledby="pills-Question-4-tab">
+          <div class="Question">
+            <h5>
+    
+            4- Write a JavaScript program to compute the sum of the two given integers. If the two values are the same, then return triple their sum. 
+            </h5>
+          </div>
+          <div class="Result">
+              <div class="Code " style="white-space: pre">
+                  <h6>Problem Solution Code</h6>
+                  function tripleSum(x ,y) {
+                    console.log(x,y);
+                    sumNum = 0 ;
+                    if (x === y) {
+                        sumNum = 3 * (x + y);
+                }
+                else{
+                    sumNum = x + y
+                }
+                console.log(sumNum);
+                }
+    }
+              </div>
+              <div class="outPut">
+                  <h6>Solution Output</h6>
+                  <button type="button" onclick="tripleSum(2,2)" class="btn btn-outline-success">View Result</button>
+                  <p id="Result3"></p>
+              </div>
+          </div>
+      </div>
+
+      <div class="tab-pane fade" id="Question-5" role="tabpanel" aria-labelledby="pills-Question-5-tab">
+        <div class="Question">
+          <h5>
+  
+         5- Write a JavaScript program to check two given integers whether one is positive and another one is negative. 
+          </h5>
+        </div>
+        <div class="Result">
+            <div class="Code " style="white-space: pre">
+                <h6>Problem Solution Code</h6>
+function CheckNumber(x, y) {
+ console.log(x,y);
+ if ((x > 0) && (y > 0)){
+document.getElementById('Result5').innerHTML = `${x} is positive number and ${y} is positive number`
+                      
+ } else if((x < 0) && (y < 0)){
+                      
+ document.getElementById('Result5').innerHTML = `${x} is negative number and ${y} is negative number`
+} else if((x > 0) && (y < 0)){
+                      
+  document.getElementById('Result5').innerHTML = `${x} is positive number and ${y} is negative number`
+ } else{
+                      
+ document.getElementById('Result5').innerHTML = `${x} is negative number and ${y} is positive number`
+ }
+ }
+ CheckNumber(-1, -2) 
+            </div>
+            <div class="outPut">
+                <h6>Solution Output</h6>
+                <button type="button" onclick="CheckNumber(-1,-2)" class="btn btn-outline-success">View Result</button>
+                <p id="Result5"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="Question-6" role="tabpanel" aria-labelledby="pills-Question-6-tab">
+      <div class="Question">
+        <h5>
+
+          6- Write a JavaScript program to create another string by adding "Py" in front of a given string. If the given string begins with "Py" return the original string.
+        </h5>
+      </div>
+      <div class="Result">
+          <div class="Code " style="white-space: pre">
+              <h6>Problem Solution Code</h6>
+let str1 = "Hello World! working with javascript"
+ let str2 = "Py is default in this string  Hello World! working with javascript"
+function AddingPy(str) {
+ let StrArray = str.trim().split(" ");
+ let newStr = '' 
+                  
+if (StrArray[0] !== 'Py' ) {
+ StrArray.unshift('Py');
+ newStr=(StrArray.join(" "));
+} else{
+  newStr=(StrArray.join(" "))
+ }
+              
+ console.log(newStr);
+ document.getElementById('Result6').innerHTML = `${newStr}`
+ }
+ AddingPy(str1)
+          </div>
+          <div class="outPut">
+              <h6>Solution Output</h6>
+              <button type="button" onclick="AddingPy(str1)" class="btn btn-outline-success">View Result</button>
+              <p id="Result6"></p>
+          </div>
+      </div>
+  </div>
+  <div class="tab-pane fade" id="Question-7" role="tabpanel" aria-labelledby="pills-Question-7-tab">
+    <div class="Question">
+      <h5>
+
+      7- Write a JavaScript program to change the capitalization of all letters in a given string.
+      </h5>
+    </div>
+    <div class="Result">
+        <div class="Code " style="white-space: pre">
+            <h6>Problem Solution Code</h6>
+let str = 'hello world! you HAVE to learn JAVASCRIPT'
+ function Capitalization(str) {
+  let token = str.split('')
+  let newStr = ''
+            
+for (let i = 0; i < token.length; i++) {
+let letters = token[i]
+ if (token[i].toLowerCase() === letters ) {
+               
+  token[i] = token[i].toUpperCase()
+                
+   }
+else if(token[i].toUpperCase() === letters ){
+                    
+     token[i] = token[i].toLowerCase()
+ }
+                    
+ }   
+newStr = token.join(' ')
+console.log(newStr);
+document.getElementById('Result7').innerHTML = `${newStr}`
+ }
+ Capitalization(str)
+        </div>
+        <div class="outPut">
+            <h6>Solution Output</h6>
+            <button type="button" onclick="Capitalization(str)" class="btn btn-outline-success">View Result</button>
+            <p id="Result7"></p>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="Question-8" role="tabpanel" aria-labelledby="pills-Question-8-tab">
+  <div class="Question">
+    <h5>
+
+      8- Write a JavaScript program to compute the sum of all the digits that occur in a given string.
+    </h5>
+  </div>
+  <div class="Result">
+      <div class="Code " style="white-space: pre">
+          <h6>Problem Solution Code</h6>
+let str3 = '123Hello!456World789'
+function Sum(str) {
+let token = str.split('')
+let sumAll = 0
+ // console.log(token);
+for (let i = 0; i < token.length; i++) {
+let number = Number(token[i])
+if (!isNaN(number)) {
+  sumAll += number
+ }
+}
+ console.log(sumAll);
+ document.getElementById('Result8').innerHTML = `Sum of all the digits that occur in a given string: ${sumAll}`
+ }
+ Sum(str3)        
+      </div>
+      <div class="outPut">
+          <h6>Solution Output</h6>
+          <button type="button" onclick="Sum(str3)" class="btn btn-outline-success">View Result</button>
+          <p id="Result8"></p>
+      </div>
+  </div>
+</div>
+<div class="tab-pane fade" id="Question-9" role="tabpanel" aria-labelledby="pills-Question-9-tab">
+  <div class="Question">
+    <h5>
+
+      9-  Write a JavaScript program to break an URL address and put its parts into an array. Note: url structure : ://.org[/] and there may be no part in the address.
+    </h5>
+  </div>
+  <div class="Result">
+      <div class="Code " style="white-space: pre">
+          <h6>Problem Solution Code</h6>
+ let str4 = 'https://bslthemes.com/html/itsulu/service-1.html'
+   function BreakUrl(str) {
+    let array = str.split('/')
+    console.log(array);
+     // console.log(array.join('/'));
+    document.getElementById('Result9').innerHTML = `${array}`
+   }
+   BreakUrl(str4)     
+      </div>
+      <div class="outPut">
+          <h6>Solution Output</h6>
+          <button type="button" onclick="BreakUrl(str4)" class="btn btn-outline-success">View Result</button>
+          <p id="Result9"></p>
+      </div>
+  </div>
+</div>
+<div class="tab-pane fade" id="Question-10" role="tabpanel" aria-labelledby="pills-Question-10-tab">
+  <div class="Question">
+    <h5>
+
+     10- Write a JavaScript program to sort the strings of a given array of strings in order of increasing length.
+    </h5>
+  </div>
+  <div class="Result">
+      <div class="Code " style="white-space: pre">
+          <h6>Problem Solution Code</h6>
+let Array = ['Need a name','hello','Likely name with spaces separated', 'world!','What is plane']
+function StringOrder(arr) {
+console.log(arr);
+ arr.sort(function(a,b){return a.length - b.length})
+ console.log(arr);
+ document.getElementById('Result9').innerHTML = `${arr}`
+ }
+ StringOrder(Array) 
+      </div>
+      <div class="outPut">
+          <h6>Solution Output</h6>
+          <button type="button" onclick="StringOrder(Array)" class="btn btn-outline-success">View Result</button>
+          <p id="Result10"></p>
+      </div>
+  </div>
+</div>
+<!-- paste above the following div -->
+</div>
+  </div>
+
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

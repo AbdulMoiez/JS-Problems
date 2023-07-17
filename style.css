@@ -1,0 +1,10 @@
+.Result{
+    display: flex;
+    
+}
+.Result div{
+    padding: 0 15px;
+}
+.btn{
+    margin-bottom: 20px;
+}
